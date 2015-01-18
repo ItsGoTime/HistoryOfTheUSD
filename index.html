@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="interface.css">
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+
+<body>
+	<div class="rowheader">
+   		<h1 id="timePeriodTitle">A Humble Beginning</h1>
+		<h3 id="timePeriodRange">1565 - 1650</h3>
+	</div>
+    
+    <div id="timeTrial" class="hidden">
+        <div id="timeTrialLeft">
+            <div id="timeDisplay">Time: </div>
+        </div>
+        <div id="timeTrialRight">
+            <div id="worthCN">1 CN is now worth 1 CN</div>
+            <div id="powerDisplay">0 military power</div>
+        </div>
+    </div>
+    
+	<div id="vitalStats">
+        <div id="vitalStatsLeft">
+            <div id="popDiv">
+                <div id="population" class="thing1">Population: 1</div>
+                <div id="popInd" class="thing2"> (0)</div>
+            </div>
+            <div class="spacer"></div>
+            <div id="redCoatDiv" class="hidden temp1">
+                <div id="numRedCoat" class="thing1"># of British soldiers: 0</div>
+                <div id="redCoatInd" class="thing2"> (0)</div>
+            </div>
+        </div>
+        <div id="vitalStatsRight">
+            <div id="SDDiv">
+                <div id="totalSD" class="thing1">0.00 Spanish Dollars (SD)</div>
+                <div id="SDInd" class="thing2"> (0.00)</div>
+            </div>
+            <div id="CNDiv" class="hidden temp3">
+                <div id="totalCN" class="thing1">0 Continentals (CN)</div>
+                <div id="CNInd" class="thing2"> (0)</div>
+            </div>
+            <div id="taxRate" class="hidden temp2">British Tax Rate: 0%</div>
+        </div>
+	</div>
+	
+	<div id="upgradePanel">
+		<h2 id="upgradeTitle">Upgrades</h2>
+		<button type="button" id="launchShip" class="hidden">
+			Launch 1 Ship
+			<div id="levelShip">Level: 0/10</div>
+			<div id="costShip">Cost: 25.00 SD</div>
+			<div id="rateShip">0 colonists/sec</div>
+		</button>
+        
+		<button type="button" id="buildMarketplace" class="hidden btemp0">
+			Build Marketplace
+			<div id="costMarketplace">Cost: 15.00 SD</div>
+		</button>
+        
+		<button type="button" id="foundHoB" class="hidden btemp0">
+			Found House of Burgesses
+			<div id="costHoB">Cost: 50.00 SD</div>
+		</button>
+        
+        <button type="button" id="jumpStart" class="hidden btemp0">
+            *Yawn*
+            <div id="boostJumpStart">+47,500 population</div>
+        </button>
+        
+        <button type="button" id="buildPort1" class="hidden">
+            Build Ports
+            <div id="costPort1">Cost: 750.00 SD</div>
+        </button>
+        
+        <button type="button" id="buildPort2" class="hidden">
+            Develop Longboats
+            <div id="costPort2">Cost: 1,500.00 SD</div>
+        </button>
+        
+        <button type="button" id="buildPort3" class="hidden">
+            Expand Ports
+            <div id="costPort3">Cost: 3,000.00 SD</div>
+        </button>
+        
+        <button type="button" id="buildPort4" class="hidden">
+            Larger Cargo Holds
+            <div id="costPort4">Cost: 6,000.00 SD</div>
+        </button>
+        
+        <button type="button" id="buildPort5" class="hidden">
+            More Ports, Dammit!
+            <div id="costPort5">Cost: 12,000.00 SD</div>
+        </button>
+        
+        <button type="button" id="recruitNative" class="hidden temp1 btemp1">
+            Recruit Native Americans
+            <div id="levelNative">Level: 0</div>
+            <div id="costNative">Cost: 1,500.00 SD</div>
+            <div id="multiplierNative">Multiplier: 1</div>
+        </button>
+        
+        <button type="button" id="warShipGB" class="hidden temp1 btemp1">
+            British War Ship
+            <div id="levelWarShipGB">Level: 0</div>
+            <div id="costWarShipGB">Cost: 2,500.00 SD</div>
+            <div id="rateWarShipGB">0 soldiers/sec</div>
+        </button>
+        
+        <button type="button" id="newAmsterdam" class="hidden temp1 btemp1">
+            Invade New Amsterdam
+            <div id="costNewAmsterdam">Cost: 1,000.00 SD</div>
+        </button>
+        
+        <button type="button" id="FIW" class="event hidden temp1 btemp1">
+            Pick a Fight with the French
+            <div id="costSilverFIW">Cost: 100.00 oz. silver</div>
+            <div id="costGoldFIW">25.00 oz. gold</div>
+        </button>
+        
+        <button type="button" id="ToP1" class="hidden temp1 btemp1">
+            Sign Treaty to End War
+            <div id="costLives">Cost: 1,500 British soldiers</div>
+        </button>
+        
+        <button type="button" id="BosMas" class="hidden btemp2">
+            Have a Riot!
+            <div id="BosMasTag">Taxes are too high</div>
+        </button>
+        
+        <button type="button" id="BTP" class="hidden btemp2">
+            Milk or Sugar?
+            <div id="BTPTag">Tea in Boston Harbor</div>
+        </button>
+        
+        <button type="button" id="FCC" class="hidden btemp2">
+            Convene the First Continental Congress
+            <div id="costFCC">5,000.00 SD</div>
+        </button>
+        
+        <button type="button" id="buildBarracks" class="hidden btemp2">
+            Form an Army
+            <div id="costBarracks">Cost: 100.00 oz. gold</div>
+        </button>
+        
+        <button type="button" id="printingPress1" class="hidden btemp2">
+            Printing Press #1
+            <div id="costSilver1">Cost: 200.00 oz. silver</div>
+            <div id="costGold1">100.00 oz. gold</div>
+        </button>
+        
+        <button type="button" id="printingPress2" class="hidden btemp2">
+            Printing Press #2
+            <div id="costSilver2">Cost: 300.00 oz. silver</div>
+            <div id="costGold2">150.00 oz. gold</div>
+        </button>
+        
+        <button type="button" id="printingPress3" class="hidden btemp2">
+            Printing Press #3
+            <div id="costSilver3">Cost: 400.00 oz. silver</div>
+            <div id="costGold3">200.00 oz. gold</div>
+        </button>
+        
+        <button type="button" id="printingPress4" class="hidden btemp2">
+            Printing Press #4
+            <div id="costSilver4">Cost: 500.00 oz. silver</div>
+            <div id="costGold4">250.00 oz. gold</div>
+        </button>
+        
+        <button type="button" id="AmRevSword" class="hidden temp3 btemp3">
+            Sword 
+            <div id="powerAmRevSword">(+1 power)</div>
+            <div id="numAmRevSword">You have: 0</div>
+            <div id="costAmRevSword">Cost: 10 CN</div>
+        </button>
+        
+        <button type="button" id="AmRevSpear" class="hidden temp3 btemp3">
+            Spear
+            <div id="powerAmRevSpear">(+5 power)</div>
+            <div id="numAmRevSpear">You have: 0</div>
+            <div id="costAmRevSpear">Cost: 100 CN</div>
+        </button>
+        
+        <button type="button" id="AmRevMusket" class="hidden temp3 btemp3">
+            Musket
+            <div id="powerAmRevMusket">(+10 power)</div>
+            <div id="numAmRevMusket">You have: 0</div>
+            <div id="costAmRevMusket">Cost: 1,000 CN</div>
+        </button>
+        
+        <button type="button" id="AmRevCannon" class="hidden temp3 btemp3">
+            Cannon
+            <div id="powerAmRevCannon">(x2 power)</div>
+            <div id="numAmRevCannon">You have: 0</div>
+            <div id="costAmRevCannon">Cost: 10,000 CN</div>
+        </button>
+        
+        <button type="button" id="lowerCostSword1" class="hidden temp3 btemp3a">
+            50% off Swords
+            <div id="costCN1">Cost: 1,000 CN</div>
+        </button>
+        
+        <button type="button" id="lowerCostSword2" class="hidden temp3 btemp3a">
+            75% off Swords (from original cost)
+            <div id="costCN2">Cost: 5,000 CN</div>
+        </button>
+        
+        <button type="button" id="lowerCostSpear1" class="hidden temp3 btemp3a">
+            50% off Spears
+            <div id="costCN1">Cost: 10,000 CN</div>
+        </button>
+        
+        <button type="button" id="lowerCostSpear2" class="hidden temp3 btemp3a">
+            75% off Spears (from original cost)
+            <div id="costCN2">Cost: 50,000 CN</div>
+        </button>
+        
+        <button type="button" id="lowerCostMusket1" class="hidden temp3 btemp3a">
+            50% off Muskets
+            <div id="costCN1">Cost: 100,000 CN</div>
+        </button>
+        
+        <button type="button" id="lowerCostMusket2" class="hidden temp3 btemp3a">
+            75% off Muskets (from original cost)
+            <div id="costCN2">Cost: 500,000 CN</div>
+        </button>
+        
+        <button type="button" id="lowerCostCannon1" class="hidden temp3 btemp3a">
+            50% off Cannons
+            <div id="costCN1">Cost: 1,000,000 CN</div>
+        </button>
+        
+        <button type="button" id="lowerCostCannon2" class="hidden temp3 btemp3a">
+            75% off Cannons (from original cost)
+            <div id="costCN2">Cost: 5,000,000 CN</div>
+        </button>
+        
+        <button type="button" id="morePowerSword1" class="hidden temp3 btemp3b">
+            Double Sword Power
+            <div id="costCN1">Cost: 2,000 CN</div>
+        </button>
+        
+        <button type="button" id="morePowerSword2" class="hidden temp3 btemp3b">
+            Double Sword Power Again
+            <div id="costCN2">Cost: 10,000 CN</div>
+        </button>
+        
+        <button type="button" id="morePowerSword3" class="hidden temp3 btemp3b">
+            Double Sword Power Once More
+            <div id="costCN3">Cost: 50,000 CN</div>
+        </button>
+        
+        <button type="button" id="morePowerSpear1" class="hidden temp3 btemp3b">
+            Double Spear Power
+            <div id="costCN1">Cost: 20,000 CN</div>
+        </button>
+        
+        <button type="button" id="morePowerSpear2" class="hidden temp3 btemp3b">
+            Double Spear Power Again
+            <div id="costCN2">Cost: 100,000 CN</div>
+        </button>
+        
+        <button type="button" id="morePowerSpear3" class="hidden temp3 btemp3b">
+            Double Spear Power Once More
+            <div id="costCN3">Cost: 500,000 CN</div>
+        </button>
+        
+        <button type="button" id="morePowerMusket1" class="hidden temp3 btemp3b">
+            Double Musket Power
+            <div id="costCN1">Cost: 200,000 CN</div>
+        </button>
+        
+        <button type="button" id="morePowerMusket2" class="hidden temp3 btemp3b">
+            Double Musket Power Again
+            <div id="costCN2">Cost: 1,000,000 CN</div>
+        </button>
+        
+        <button type="button" id="morePowerMusket3" class="hidden temp3 btemp3b">
+            Double Musket Power Once More
+            <div id="costCN3">Cost: 5,000,000 CN</div>
+        </button>
+        
+        <button type="button" id="morePowerCannon1" class="hidden temp3 btemp3b">
+            Double Cannon Power
+            <div id="costCN1">Cost: 2,000,000 CN</div>
+        </button>
+        
+        <button type="button" id="morePowerCannon2" class="hidden temp3 btemp3b">
+            Double Cannon Power Again
+            <div id="costCN2">Cost: 10,000,000 CN</div>
+        </button>
+        
+        <button type="button" id="morePowerCannon3" class="hidden temp3 btemp3b">
+            Double Cannon Power Once More
+            <div id="costCN3">Cost: 50,000,000 CN</div>
+        </button>
+        
+	</div>
+
+	<div id="resourcePanel">
+        <div id="colonialNotes" class="resource hidden temp3">
+            <div class="resourceStat">
+                <div id="incrementCN">0 Continentals (CN)</div>
+            </div>
+            <button type="button" id="printCN">Print money</button>
+            <div class="spacer"></div>
+        </div>
+        
+		<div id="goods" class="resource">
+			<div class="resourceStat">
+				<div id="totalGoods" class="thing1">0.00 lbs.</div>
+                <div id="goodsInd" class="thing2"> (0.00)</div>
+                <div id="goodsConversion"> 1 lb. = 1 SD</div>
+                <div id="goodsStockpile" class="hidden">0.00 lbs.</div>
+			</div>
+			<button type="button" id="getGoods">Harvest Tobacco</button>
+			<button type="button" id="sellGoods">Sell Tobacco</button>
+            <button type="button" id="sellAll" class="hidden">Sell All</button>
+			<div class="spacer"></div>
+		</div>
+        
+        <div id="silver" class="resource hidden">
+            <div class="resourceStat">
+                <div id="totalSilver" class="thing1">0.00 oz.</div>
+                <div id="silverInd" class="thing2"> (0.00)</div>
+                <div id="silverConversion">1 oz. = 2.00 SD</div>
+            </div>
+            <button type="button" id="getSilver">Mine Silver</button>
+            <button type="button" id="sellSilver">Sell Silver</button>
+            <div class="spacer"></div>
+        </div>
+        
+        <div id="gold" class="resource hidden">
+            <div class="resourceStat">
+                <div id="totalGold" class="thing1">0.00 oz.</div>
+                <div id="goldInd" class="thing2"> (0.00)</div>
+                <div id="goldConversion"> 1 oz. = 20.00 SD</div>
+            </div>
+            <button type="button" id="getGold">Mine Gold</button>
+            <button type="button" id="sellGold">Sell Gold</button>
+            <div class="spacer"></div>
+        </div>
+                
+		<div id="colonist" class="resource">
+			<div class="resourceStat">
+				<div id="numColonist">You have: 0</div>
+				<div id="rateColonist">0.00 lbs./sec</div>
+			</div>
+			<button type="button" id="getColonists">
+				Get Colonists
+				<div id="costColonist">Cost: 1.00 SD</div>
+			</button>
+			<div class="spacer"></div>
+		</div>
+        
+		<div id="slave" class="resource hidden">
+			<div class="resourceStat">
+				<div id="numSlave">You have: 0</div>
+				<div id="rateSlave">0.00 lbs./sec</div>
+			</div>
+			<button type="button" id="buySlaves">
+				Buy Slaves
+				<div id="costSlave">Cost: 5.00 SD</div>
+			</button>
+			<div class="spacer"></div>
+		</div>
+        
+		<div id="merchant" class="resource hidden">
+			<div class="resourceStat">
+				<div id="numMerchant">You have: 0</div>
+				<div id="rateMerchant">0.00 lbs. --> 0.00 SD (per second)</div>
+			</div>
+			<button type="button" id="hireMerchants">
+				Hire Merchants
+				<div id="costMerchant">Cost: 10.00 SD</div>
+			</button>
+			<div class="spacer"></div>
+		</div>
+        
+        <div id="minutemen" class="resource hidden temp3">
+            <div class="resourceStat">
+                <div id="numMinutemen">You have: 0</div>
+            </div>
+            <button type="button" id="draftMinutemen">
+                Draft Minutemen
+                <div id="costSilverMinutemen">Cost: 12.50 oz. silver</div>
+                <div id="costGoldMinutemen">10.00 oz. gold</div>
+                <div id="costCNMinutemen" class="hidden">1,000 CN</div>
+            </button>
+            <div class="spacer"></div>
+        </div>
+	</div>
+	
+	<div id="objectivePanel">
+		<h2 id="objectiveTitle">Objectives</h2>
+		<ol id="objective"></ol>
+	</div>
+	
+	<div class="spacer"></div>
+	
+	<hr/>
+
+</body>
+
+<!--
+The game script. If I include this any earlier in the HTML it doesn't seem to
+work.
+-->
+<script src="main.js"></script>
+
+</html>
